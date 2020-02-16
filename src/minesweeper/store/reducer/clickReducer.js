@@ -5,7 +5,7 @@ const clickReducer = (state, payload) => {
     return {
       ...state,
       clicks,
-      inProgress: false
+      status: "lose"
     };
   }
   return {

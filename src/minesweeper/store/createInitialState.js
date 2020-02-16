@@ -1,10 +1,12 @@
-import { createBoard } from "./utils";
+import { createBoard, get10 } from "./utils";
 
 const createInitialState = () => {
+  const bombs = get10();
   return {
-    inProgress: null,
+    status: 'started',
     clicks: [],
-    board: createBoard(),
+    bombs,
+    board: createBoard(bombs),
     flags: []
   };
 };

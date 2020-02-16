@@ -4,7 +4,7 @@ const createEmptyBoard = () =>
 export const createMineField = () =>
   [...Array(10)].map(_ => [...Array(10)].map(_ => "u"));
 
-const get10 = () => {
+export const get10 = () => {
   const output = [];
   while (output.length < 10) {
     const random = Math.floor(Math.random() * 100);
@@ -18,6 +18,11 @@ const get10 = () => {
       if (s.length === 1) return [0, n];
       return [+s[0], +s[1]];
     });
+};
+
+export const hasWon = (a, b) => {
+  if (b.length !== 10) return false;
+  return !!a.filter((e, i) => e.join("") === b[i].join("")).length;
 };
 
 const placeBombs = (bombCoords, board) => {
@@ -92,6 +97,6 @@ const numberCells = bombBoard => {
   });
 };
 
-export const createBoard = () => {
-  return numberCells(placeBombs(get10(), createEmptyBoard()));
+export const createBoard = bombCoordinates => {
+  return numberCells(placeBombs(bombCoordinates, createEmptyBoard()));
 };

@@ -6,7 +6,10 @@ function App({ game }) {
   const [minefield, setMinefield] = useState(game.getMinefield());
   useEffect(() => {
     game.subscribe(() => {
-      console.log(game.getState());
+      const status = game.getStatus();
+      if (status === "win") alert("win !");
+      if (status === "lose") alert("lose !");
+
       setMinefield(game.getMinefield());
     });
   }, [game]);

@@ -1,10 +1,10 @@
 import createInitialState from "../createInitialState";
-import clickReducer from './clickReducer'
-import flagReducer from './flagReducer'
+import clickReducer from "./clickReducer";
+import flagReducer from "./flagReducer";
 
 const initialState = createInitialState();
 // {
-//   inProgress: null,
+//   status: 'in_progress'|'win'|'lose' ,
 //   clicks: [],
 //   board: createBoard(),
 //   flags: []

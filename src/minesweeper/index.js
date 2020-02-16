@@ -24,6 +24,10 @@ export default class MineSweeper {
     });
   };
 
+  getStatus = () => {
+    return this.getState().status
+  }
+
   subscribe(callback) {
     const unsubscribe = this.store.subscribe(_ => {
       const state = this.getState();
@@ -33,7 +37,7 @@ export default class MineSweeper {
   }
 
   getMinefield() {
-    // selector to unify clicks with board
+    // selector to unify clicks and flags with display board
     return minefieldSelector(this.getState());
   }
 }

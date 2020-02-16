@@ -1,3 +1,5 @@
+import { hasWon } from "../utils";
+
 const isAlreadyFlagged = (payload, flags) => {
   return flags.find(coords => {
     const [px, py] = payload,
@@ -23,10 +25,15 @@ const flagReducer = (state, payload) => {
       flags
     };
   }
-  const flags = [...state.flags, payload];
+  const flags = [...state.flags, payload].sort((a, b) => {
+    return +a.join("") - +b.join("");
+  });
+
+  const status = hasWon(state.bombs, flags) ? "win" : state.status;
   return {
     ...state,
-    flags
+    flags,
+    status
   };
 };
 
