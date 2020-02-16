@@ -16,7 +16,16 @@ function App({ game }) {
         {minefield.map((r, i) => (
           <div key={i}>
             {r.map((c, j) => (
-              <Cell key={j} {...{ i, j, c, clickCell: game.clickCell }} />
+              <Cell
+                key={j}
+                {...{
+                  i,
+                  j,
+                  c,
+                  clickCell: game.clickCell,
+                  flagCell: game.flagCell
+                }}
+              />
             ))}
           </div>
         ))}

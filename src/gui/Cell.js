@@ -2,14 +2,14 @@ import React from "react";
 import s from "./styles.module.css";
 import classnames from "classnames";
 
-const Cell = ({ i, j, c, clickCell }) => {
+const Cell = ({ i, j, c, clickCell, flagCell }) => {
   const handler = e => {
     e.preventDefault();
     clickCell([i, j]);
   };
   const rightClickHandler = e => {
     e.preventDefault();
-    console.log(e.type);
+    flagCell([i, j]);
   };
   const className = classnames({
     [s.btn]: true,

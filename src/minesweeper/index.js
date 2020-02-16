@@ -10,8 +10,14 @@ export default class MineSweeper {
     return this.store.getState();
   }
 
+  flagCell = payload => {
+    this.store.dispatch({
+      type: "FLAG",
+      payload
+    });
+  };
+
   clickCell = payload => {
-    
     this.store.dispatch({
       type: "CLICK",
       payload

@@ -15,16 +15,25 @@ const clickReducer = (state, payload) => {
     clicks
   };
 };
+const flagReducer = (state, payload) => {
+  const flags = [...state.flags, payload];
+  return {
+    ...state,
+    flags
+  };
+};
 
 const initialState = createInitialState();
 // {
 //   inProgress: null,
 //   clicks: [],
-//   board: createBoard()
+//   board: createBoard(),
+//   flags: []
 // }
 
 const reducers = {
-  CLICK: clickReducer
+  CLICK: clickReducer,
+  FLAG: flagReducer
 };
 
 export default function minesweeperReducer(state = initialState, action) {
