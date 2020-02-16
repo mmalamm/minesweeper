@@ -1,10 +1,15 @@
 import createInitialState from "./createInitialState";
 
 const clickReducer = (state, payload) => {
-  return [...state, payload];
+  return 
 };
 
 const initialState = createInitialState();
+// {
+//   inProgress: null,
+//   clicks: [],
+//   board: createBoard()
+// }
 
 const reducers = {
   CLICK: clickReducer

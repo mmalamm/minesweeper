@@ -1,6 +1,9 @@
 const createEmptyBoard = () =>
   [...Array(10)].map(_ => [...Array(10)].map(_ => "e"));
 
+export const createMineField = () =>
+  [...Array(10)].map(_ => [...Array(10)].map(_ => "u"));
+
 const get10 = () => {
   const output = [];
   while (output.length < 10) {
@@ -37,9 +40,9 @@ const deltas = [
 ];
 
 const openSquares = (currentCoords, bombBoard, island) => {
-  const [x, y] = currentCoords;
-  const str = currentCoords.join('');
+  const str = currentCoords.join("");
   if (island.includes(str)) return;
+  const [x, y] = currentCoords;
   if (bombBoard[x][y] === "e") {
     island.push(str);
     getDeltaCells(currentCoords).forEach(d => {
@@ -53,7 +56,7 @@ const openSquares = (currentCoords, bombBoard, island) => {
 export const getEmptyIsland = (emptyCoords, bombBoard) => {
   const output = [];
   openSquares(emptyCoords, bombBoard, output);
-  return output;
+  return output.map(([x, y]) => [+x, +y]);
 };
 
 const isValid = n => n >= 0 && n < 10;
