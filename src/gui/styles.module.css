@@ -19,6 +19,33 @@ body {
   padding: 0;
 }
 
+.blue {
+  color: blue;
+}
+.green {
+  color: green;
+}
 .red {
   color: red;
+}
+.purple {
+  color: purple;
+}
+.maroon {
+  color: maroon;
+}
+.turquoise {
+  color: turquoise;
+}
+.black {
+  color: black;
+}
+.gray {
+  color: gray;
+}
+.emptyCell {
+  color: #ddd;
+}
+.bomb {
+  background-color: red;
 }

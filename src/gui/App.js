@@ -8,8 +8,8 @@ function App({ game }) {
     <div className={s.main}>
       {minefield.map((r, i) => (
         <div key={i}>
-          {[...r].map((c, j) => (
-            <Cell key={j} {...{ i, j, c }} />
+          {r.map((c, j) => (
+            <Cell key={j} {...{ i, j, c, minefield }} />
           ))}
         </div>
       ))}
