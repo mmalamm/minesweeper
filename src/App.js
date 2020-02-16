@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import s from "./App.module.css";
 
-function App() {
+function App({ game }) {
+  const [minefield, setMinefield] = useState(game.getMinefield());
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={s.main}>
+      {minefield.map((r, i) => (
+        <div key={i}>
+          {[...r].map((c, j) => {
+            const handler = e => {
+              e.preventDefault();
+              console.log(i, j);
+            };
+            return (
+              <button className={s.btn} key={j} onClick={handler}>
+                {c}
+              </button>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 }
