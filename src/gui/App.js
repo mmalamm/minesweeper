@@ -16,6 +16,9 @@ function App({ game }) {
   return (
     <>
       <div className={s.main}>
+        <code className={s.directions}>
+          flag (right-click) all the bombs to win
+        </code>
         {minefield.map((r, i) => (
           <div key={i}>
             {r.map((c, j) => (
@@ -29,15 +32,6 @@ function App({ game }) {
                   flagCell: game.flagCell
                 }}
               />
-            ))}
-          </div>
-        ))}
-      </div>
-      <div>
-        {game.getState().board.map((r, i) => (
-          <div key={i}>
-            {r.map((c, j) => (
-              <Cell key={j} {...{ i, j, c, clickCell: game.clickCell }} />
             ))}
           </div>
         ))}

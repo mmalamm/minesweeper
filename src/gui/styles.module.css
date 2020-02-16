@@ -19,6 +19,10 @@ body {
   padding: 0;
 }
 
+.directions {
+  margin: 2rem;
+}
+
 .btn:disabled {
   background-color: #aaa;
 }
