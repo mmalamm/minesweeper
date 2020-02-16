@@ -53,6 +53,10 @@ body {
 .unclicked {
   color: #ddd;
 }
-.bomb, .bomb:disabled {
+.flag {
+  font-weight: bold;
+}
+.bomb,
+.bomb:disabled {
   background-color: red;
 }

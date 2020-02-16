@@ -23,13 +23,14 @@ const Cell = ({ i, j, c, clickCell, flagCell }) => {
     [s.maroon]: c === 5,
     [s.turquoise]: c === 6,
     [s.black]: c === 7,
-    [s.gray]: c === 8
+    [s.gray]: c === 8,
+    [s.flag]: c === "f"
   });
   return (
     <button
       className={className}
       onClick={handler}
-      disabled={c !== "u"}
+      disabled={c !== "u" && c !== "f"}
       onContextMenu={rightClickHandler}
     >
       {c}
