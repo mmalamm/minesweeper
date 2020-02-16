@@ -1,4 +1,5 @@
 import createStore from "./store/createStore";
+import { minefieldSelector } from "./store/minefieldSelector";
 
 export default class MineSweeper {
   constructor() {
@@ -9,8 +10,24 @@ export default class MineSweeper {
     return this.store.getState();
   }
 
+  clickCell = payload => {
+    
+    this.store.dispatch({
+      type: "CLICK",
+      payload
+    });
+  };
+
+  subscribe(callback) {
+    const unsubscribe = this.store.subscribe(_ => {
+      const state = this.getState();
+      callback({ ...state });
+    });
+    return unsubscribe;
+  }
+
   getMinefield() {
     // selector to unify clicks with board
-    return this.getState().board;
+    return minefieldSelector(this.getState());
   }
 }

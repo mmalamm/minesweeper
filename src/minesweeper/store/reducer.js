@@ -1,7 +1,19 @@
 import createInitialState from "./createInitialState";
 
 const clickReducer = (state, payload) => {
-  return 
+  const [x, y] = payload;
+  const clicks = [...state.clicks, payload];
+  if (state.board[x][y] === "b") {
+    return {
+      ...state,
+      clicks,
+      inProgress: false
+    };
+  }
+  return {
+    ...state,
+    clicks
+  };
 };
 
 const initialState = createInitialState();

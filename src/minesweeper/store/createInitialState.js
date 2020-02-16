@@ -4,7 +4,8 @@ const createInitialState = () => {
   return {
     inProgress: null,
     clicks: [],
-    board: createBoard()
+    board: createBoard(),
+    flags: []
   };
 };
 

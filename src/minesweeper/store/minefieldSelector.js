@@ -11,7 +11,7 @@ export const minefieldSelector = createSelector(
       const [x, y] = coords;
       if (board[x][y] === "e") {
         getEmptyIsland([x, y], board).forEach(([cx, cy]) => {
-          minefield[cx][cy] = board[x][y];
+          minefield[cx][cy] = board[cx][cy];
         });
       } else {
         minefield[x][y] = board[x][y];

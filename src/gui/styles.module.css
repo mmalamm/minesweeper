@@ -19,6 +19,10 @@ body {
   padding: 0;
 }
 
+.btn:disabled {
+  background-color: #aaa;
+}
+
 .blue {
   color: blue;
 }
@@ -44,8 +48,11 @@ body {
   color: gray;
 }
 .emptyCell {
+  color: #aaa;
+}
+.unclicked {
   color: #ddd;
 }
-.bomb {
+.bomb, .bomb:disabled {
   background-color: red;
 }

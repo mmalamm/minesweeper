@@ -2,28 +2,18 @@ import React from "react";
 import s from "./styles.module.css";
 import classnames from "classnames";
 
-///
-import {
-  getDeltaCells,
-  getNumber,
-  getEmptyIsland
-} from "../minesweeper/store/utils";
-///
-
-const Cell = ({ i, j, c, minefield }) => {
+const Cell = ({ i, j, c, clickCell }) => {
   const handler = e => {
     e.preventDefault();
-    // use coords to play turn
-    const ds = getDeltaCells([i, j]);
-    const num = getNumber(ds, minefield);
-    if (c === "e") {
-      console.log(getEmptyIsland([i, j], minefield));
-    } else {
-      console.log(num);
-    }
+    clickCell([i, j]);
+  };
+  const rightClickHandler = e => {
+    e.preventDefault();
+    console.log(e.type);
   };
   const className = classnames({
     [s.btn]: true,
+    [s.unclicked]: c === "u",
     [s.bomb]: c === "b",
     [s.emptyCell]: c === "e",
     [s.blue]: c === 1,
@@ -36,7 +26,12 @@ const Cell = ({ i, j, c, minefield }) => {
     [s.gray]: c === 8
   });
   return (
-    <button className={className} onClick={handler}>
+    <button
+      className={className}
+      onClick={handler}
+      disabled={c !== "u"}
+      onContextMenu={rightClickHandler}
+    >
       {c}
     </button>
   );
