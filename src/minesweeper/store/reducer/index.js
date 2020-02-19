@@ -5,8 +5,8 @@ import flagReducer from "./flagReducer";
 const initialState = createInitialState();
 // {
 //   status: 'in_progress'|'win'|'lose' ,
+//   bombs: [...tenRandomCoordinates],
 //   clicks: [],
-//   board: createBoard(),
 //   flags: []
 // }
 

@@ -4,8 +4,8 @@ const createInitialState = () => {
   const bombs = get10();
   return {
     status: 'started',
-    clicks: [],
     bombs,
+    clicks: [],
     flags: []
   };
 };

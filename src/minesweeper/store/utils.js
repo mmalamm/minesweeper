@@ -75,15 +75,8 @@ export const getDeltaCells = ([x, y]) => {
   }, []);
 };
 
-export const getNumber = (deltas, bombBoard) => {
-  let i = 0;
-  deltas.forEach(([x, y]) => {
-    if (bombBoard[x][y] === "b") {
-      i++;
-    }
-  });
-  return i;
-};
+export const getNumber = (deltas, bombBoard) =>
+  deltas.filter(([x, y]) => bombBoard[x][y] === "b").length;
 
 const numberCells = bombBoard => {
   return bombBoard.map((row, x) => {
