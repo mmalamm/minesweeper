@@ -1,7 +1,10 @@
+import { boardSelector } from "../selectors";
+
 const clickReducer = (state, payload) => {
   const [x, y] = payload;
   const clicks = [...state.clicks, payload];
-  if (state.board[x][y] === "b") {
+  const board = boardSelector(state);
+  if (board[x][y] === "b") {
     return {
       ...state,
       clicks,

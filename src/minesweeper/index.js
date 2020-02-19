@@ -1,5 +1,5 @@
 import createStore from "./store/createStore";
-import { minefieldSelector } from "./store/minefieldSelector";
+import { minefieldSelector } from "./store/selectors";
 
 export default class MineSweeper {
   constructor() {

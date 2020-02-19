@@ -1,9 +1,10 @@
 import { createSelector } from "reselect";
-import { createMineField, getEmptyIsland } from "./utils";
+import { createMineField, getEmptyIsland, createBoard } from "./utils";
 
 const clicksSelector = ({ clicks }) => clicks;
-const boardSelector = ({ board }) => board;
 const flagsSelector = ({ flags }) => flags;
+
+export const boardSelector = ({ bombs }) => createBoard(bombs);
 
 // should memoize for better performance
 export const minefieldSelector = createSelector(
